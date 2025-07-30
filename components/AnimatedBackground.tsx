@@ -1,9 +1,14 @@
 'use client'
 
-import { Canvas } from '@react-three/fiber'
+import dynamic from 'next/dynamic'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+
+const Canvas = dynamic(() => import('@react-three/fiber').then(mod => ({ default: mod.Canvas })), {
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-gradient-to-br from-black via-purple-900/20 to-blue-900/20" />
+})
 
 function AnimatedStars() {
   const starsRef = useRef<THREE.Points>(null)
@@ -94,6 +99,9 @@ export default function AnimatedBackground() {
       <Canvas
         camera={{ position: [0, 0, 50], fov: 75 }}
         style={{ background: 'transparent' }}
+        fallback={
+          <div className="w-full h-full bg-gradient-to-br from-black via-purple-900/20 to-blue-900/20" />
+        }
       >
         <ambientLight intensity={0.1} />
         <pointLight position={[10, 10, 10]} intensity={0.5} />
