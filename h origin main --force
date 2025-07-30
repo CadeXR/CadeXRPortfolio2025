@@ -1,0 +1,5 @@
+[33m097e37c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Remove npm cache from GitHub Actions to fix lock file issue
+[33mbebd340[m Fix GitHub Actions to use npm install instead of npm ci
+[33me575251[m Restore GitHub Pages deployment with fixed dependencies
+[33m5073836[m Fix Three.js dependency conflicts and update versions
+[33m89badc7[m Fix build issues and add Netlify deployment support

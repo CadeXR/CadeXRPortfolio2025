@@ -170,4 +170,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Built with ❤️ by Cade Gilbert for the XR/VR community
+Built with ❤️ by Cade Gilbert for the XR/VR community 🚀
