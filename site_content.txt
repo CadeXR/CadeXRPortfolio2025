@@ -1,0 +1,369 @@
+CADEXR PORTFOLIO SITE - COMPLETE CONTENT AND FUNCTIONALITY
+
+================================================================================
+SITE STRUCTURE AND PAGES
+================================================================================
+
+MAIN PAGES:
+- / (home) - Main landing page with VR Knight image and modal windows
+- /support - Support page for open source donations
+- /resume - Resume page with PDF download
+- /activities - Games and activities page
+- /activities/attack - Particle attack game
+- /littledude - Little dude bouncing game
+
+PROJECT PAGES:
+- /projects/project-dive - Project Dive (Nervegear-like device)
+- /projects/battlegrounds - Battlegrounds VR game
+- /projects/deskbuddy - DeskBuddy project
+- /projects/flexvr-wellness - FlexVR Wellness project
+- /projects/hex-vr - Hex VR project
+- /projects/intentional-locomotion - Intentional Locomotion project
+- /projects/lightless - Lightless project
+- /projects/personifyai - PersonifyAI project
+
+================================================================================
+HOME PAGE CONTENT AND FUNCTIONALITY
+================================================================================
+
+MAIN LAYOUT:
+- Full screen black background with animated particle scene
+- Centered VR Knight transparent image (400x400px)
+- Three modal windows: About, Portfolio, Socials
+- Navigation bar with About, Work, Connect buttons
+- Header with "CADEXR" branding
+- Back button for navigation
+
+MODAL WINDOWS:
+1. ABOUT WINDOW:
+   - Header image: AboutBackround.png
+   - Size: 400px width (mobile: 94vw/92vw)
+   - Max height: 80vh (mobile: 70vh)
+   - Content: AboutContent component
+
+2. PORTFOLIO WINDOW:
+   - Header image: Working.jpg
+   - Size: 350px width (mobile: 94vw/92vw)
+   - Height: 600px (mobile: 500px)
+   - Content: List of 8 projects with navigation
+
+3. SOCIALS WINDOW:
+   - Header image: MountainClouds.png
+   - Size: 350px width (mobile: 94vw/92vw)
+   - Height: 115px (mobile: 100px)
+   - Content: SocialContent component
+
+WINDOW FUNCTIONALITY:
+- Windows can be opened/closed
+- Only one window open at a time
+- Windows auto-center when opened
+- Windows are draggable (but disabled in current version)
+- Responsive sizing for mobile devices
+
+NAVIGATION:
+- BackButton: Returns to previous page
+- Header: Shows "CADEXR" branding
+- NavBar: Three buttons for About, Work, Connect
+- Portfolio links navigate to individual project pages
+
+================================================================================
+ABOUT CONTENT
+================================================================================
+
+ABOUT CONTENT COMPONENT:
+- Personal story and background
+- XR/VR development experience
+- Game design and AI work
+- Professional journey and achievements
+- Contact information and social links
+
+================================================================================
+PORTFOLIO PROJECTS LIST
+================================================================================
+
+PROJECTS IN ORDER:
+1. Project Dive (In Progress) - /projects/project-dive
+2. Battlegrounds - /projects/battlegrounds
+3. FlexVR Wellness - RH24 - /projects/flexvr-wellness
+4. DeskBuddy - ImmerseGT - /projects/deskbuddy
+5. Intentional Locomotion - RH25 - /projects/intentional-locomotion
+6. Hex VR - /projects/hex-vr
+7. Lightless - /projects/lightless
+8. PersonifyAI - /projects/personifyai
+
+PORTFOLIO WINDOW FUNCTIONALITY:
+- Each project is a clickable button
+- Buttons have hover effects
+- Clicking navigates to project page
+- Uses Conthrax font for project names
+- Responsive design for mobile
+
+================================================================================
+PROJECT DIVE PAGE CONTENT
+================================================================================
+
+HEADER:
+- Image: ProjectDive.png
+- Title: "Project Dive"
+- Subtitle: "Next Generation VR Immersion"
+
+CONTENT SECTIONS:
+
+1. PERSONAL STORY:
+   "I am working on the designs that can lead to the first generation of a Nervegear-like device. We prototyped an early version at MIT just this January, and I even gave a talk on the prototype and idea at NYU not a few weeks later. I've had conversations with tons of industry professionals I've worked alongside who are interested in seeing a first generation of the device, as well as several large creators in the XR industry I'm already connected with, who would both love to see that prototype and are interested in the project as a whole."
+
+2. THE CONCEPT:
+   "The basic overview is a device that is intended to allow full immersion inside a VR device, 'jacking in' like in The Matrix or Sword Art Online. But instead of waiting 10 years for some sort of outrageously expensive BCI technology or Neuralink chip to somehow be cheap and widespread, the system I am designing uses EKG and EIT kits to detect imperceptible muscle contractions in the legs and arms. These contractions are fed through an algorithm that translates these movements into control inputs that are agnostic with all immersive software (like SteamVR). A lot of the design for this device is based around hardware developed at MIT, found in this research paper: EIT-Kit Research Paper (https://hcie.csail.mit.edu/research/eit-kit/eit-kit.html)."
+
+3. HOW IT WORKS:
+   - Bio-Signal Detection: EKG and EIT systems detect micro-movements
+   - Signal Processing: Proprietary algorithms analyze bio-signals in real-time
+
+4. HOW IT FEELS:
+   "The best way to describe how the device would feel is imagine laying down in your bed, and very lightly moving the muscles you use to walk. Every time you engage each leg you take a step. Now imagine this across the body, barely flexing a muscle in your arm to lift it, or grabbing door handles by very lightly contracting the same muscle you use to grip. Tying this system with a cheap, basic focus BCI device and eye tracking, I think a fully accessible, completely immersive and futuristic control method is possible."
+
+5. INTENTIONAL LOCOMOTION:
+   "We originally called this system 'Intentional Locomotion' as it's controlling an XR rig entirely out of intent, instead of clunky un-immersive modern control schemes. And a future with a device like this could vastly increase retention in the XR space, going from Meta's recent 'comfort zone' of 20-40 minutes in VR, to hours of perfectly immersive, comfortable VR."
+
+6. THE FUTURE OF VR:
+   "Imagine a world where VR isn't just a gaming platform, but a true extension of human experience. Where you can work, socialize, create, and explore in virtual spaces that feel as natural as the physical world. This technology could revolutionize not just gaming, but remote work, education, therapy, and social interaction."
+
+7. DEVELOPMENT STATUS:
+   "After successfully prototyping at MIT in January 2024 and presenting at NYU shortly after, we're currently working on the final design pipeline and sourcing hardware components for the next iteration."
+
+================================================================================
+SUPPORT PAGE CONTENT
+================================================================================
+
+HEADER:
+- Image: MountainClouds.png
+- Title: "Support My Open Source Work"
+
+CONTENT:
+"Hi! If you've reached this page, that's because you were curious about one of my open source apps. I distribute my open source applications for free, allowing other developers like myself to have access to constantly updating tools that can further along their projects in the XR space. I make these as tools for myself internally, and over time build them up into fully-fledged applications that are scalable. These take a lot of time, and I want to keep making these tools. If you feel like supporting me, and allowing me to continue to make tools like these, I would appreciate it if you donated to my Ko-fi! Even the smallest donations help me spend time making these tools! Thank you so much! - CadeXR"
+
+KO-FI LINK:
+- URL: https://ko-fi.com/cadexr
+- Button text: "☕ Support on Ko-fi"
+
+OPEN SOURCE PHILOSOPHY:
+"I believe in the power of open source software to drive innovation and collaboration in the XR space. By keeping my tools free and accessible, I hope to lower the barrier to entry for developers and creators who want to build amazing experiences in virtual and augmented reality. Every contribution, no matter how small, helps me continue this mission and ensures that these tools remain available to everyone in the community."
+
+================================================================================
+RESUME PAGE CONTENT
+================================================================================
+
+HEADER:
+- Image: AboutBackround.png
+- Title: "Resume"
+
+CONTENT:
+- PDF file: CadeGilbertResume-July.pdf
+- Download button
+- Open in new tab button
+- No PDF viewer, just download options
+
+================================================================================
+ACTIVITIES PAGE CONTENT
+================================================================================
+
+GAMES LIST:
+1. Hex VR
+   - Description: "A VR Esport designed around zero gravity movement for VR. My role: Project Manager/Game Director"
+   - Link: https://www.meta.com/en-gb/experiences/hex-vr/7202337956544173/?srsltid=AfmBOooht_Qp_t4-_CTaj1WibBjmEkEM3FUKdZYWf9Rdgm7kzyo6CqQh
+   - Status: Available
+
+2. Battlegrounds
+   - Description: "A fantasy multiplayer sandbox game for VR. My role: Game Designer/Community Manager"
+   - Link: https://www.meta.com/en-gb/experiences/battlegrounds/24783420087971207/
+   - Status: Available
+
+3. Particle Attack
+   - Description: "Shoot particles for a high score! this game was just for fun, and runs right on this website :)"
+   - Link: /activities/attack
+   - Status: Available
+
+================================================================================
+SOCIAL CONTENT
+================================================================================
+
+SOCIAL LINKS:
+- LinkedIn
+- GitHub
+- Twitter/X
+- YouTube
+- Email contact
+- Other social media platforms
+
+================================================================================
+TECHNICAL FUNCTIONALITY
+================================================================================
+
+ANIMATED BACKGROUND:
+- Scene component with particle system
+- Particles follow mouse movement
+- Particles orbit around windows
+- Dynamic particle behavior
+
+RESPONSIVE DESIGN:
+- Mobile breakpoints: 768px, 480px, 360px
+- Responsive window sizing
+- Touch-friendly interface
+- Adaptive layouts
+
+WINDOW SYSTEM:
+- Draggable windows (currently disabled)
+- Resizable windows
+- Z-index management
+- Window positioning
+- Close/open functionality
+
+NAVIGATION SYSTEM:
+- URL parameter handling
+- Search params for window states
+- Browser back/forward support
+- Deep linking to specific windows
+
+FONT SYSTEM:
+- Conthrax-SemiBold.otf for headers
+- SourceSansPro-Regular.otf for body text
+- Font variables and responsive sizing
+
+STYLING SYSTEM:
+- CSS variables for consistent theming
+- Glass morphism effects
+- Frosted window styling
+- Hover animations
+- Transition effects
+
+================================================================================
+ASSETS AND MEDIA
+================================================================================
+
+IMAGES:
+- VR_Knight_Transparent.png (main logo)
+- AboutBackround.png (about header)
+- MountainClouds.png (socials header)
+- Working.jpg (portfolio header)
+- ProjectDive.png (project dive header)
+- Various project images
+
+FONTS:
+- Conthrax-SemiBold.otf
+- SourceSansPro-Regular.otf
+
+PDF:
+- CadeGilbertResume-July.pdf
+
+================================================================================
+COMPONENT STRUCTURE
+================================================================================
+
+MAIN COMPONENTS:
+- Scene (animated background)
+- FrostedWindow (modal window system)
+- PortfolioWindow (project list)
+- AboutContent (about information)
+- SocialContent (social links)
+- NavBar (navigation)
+- Header (site branding)
+- BackButton (navigation)
+- PortfolioPageLayout (project page layout)
+
+UTILITY COMPONENTS:
+- SearchParamsHandler (URL parameter management)
+- InTextImage (inline images)
+- EmailButton (email functionality)
+- ScoreWindow (game scoring)
+- GamesMenu (games navigation)
+
+BACKGROUND COMPONENTS:
+- AttackScene (particle attack game)
+- FlowingTrails (background effects)
+
+================================================================================
+STATE MANAGEMENT
+================================================================================
+
+WINDOW STATES:
+- isAboutOpen: boolean
+- isSocialsOpen: boolean
+- isPortfolioOpen: boolean
+- initialLoadComplete: boolean
+
+POSITION STATES:
+- aboutPosition: {x: number, y: number}
+- portfolioPosition: {x: number, y: number}
+- socialsPosition: {x: number, y: number}
+
+RESPONSIVE STATES:
+- isMobile: boolean
+- isVerySmall: boolean
+
+================================================================================
+ROUTING AND NAVIGATION
+================================================================================
+
+ROUTE STRUCTURE:
+- Next.js App Router
+- Dynamic routing for project pages
+- Search parameter handling
+- Deep linking support
+
+NAVIGATION FLOW:
+- Home page with modal windows
+- Project pages with PortfolioPageLayout
+- Support and resume pages
+- Activities and games pages
+- Back navigation system
+
+================================================================================
+STYLING AND THEMING
+================================================================================
+
+COLOR SCHEME:
+- Primary: Black background
+- Secondary: White text
+- Accent: Orange (#FF6B35)
+- Glass effects: rgba(255, 255, 255, 0.1)
+
+TYPOGRAPHY:
+- Headers: Conthrax font
+- Body: Source Sans Pro font
+- Responsive font sizing
+- Line height optimization
+
+EFFECTS:
+- Glass morphism
+- Frosted window effects
+- Particle animations
+- Hover transitions
+- Smooth scrolling
+
+================================================================================
+PERFORMANCE OPTIMIZATIONS
+================================================================================
+
+- Image optimization with Next.js Image component
+- Font loading optimization
+- Lazy loading for components
+- Responsive image sizing
+- Efficient particle system
+- Optimized window rendering
+
+================================================================================
+ACCESSIBILITY FEATURES
+================================================================================
+
+- Keyboard navigation support
+- Screen reader compatibility
+- High contrast text
+- Touch-friendly interface
+- Responsive design
+- Focus management
+
+================================================================================
+END OF SITE CONTENT AND FUNCTIONALITY
+================================================================================
+
+This document contains all the content, functionality, and technical details needed to recreate the CADEXR portfolio site. The site features a unique modal window system, animated particle background, responsive design, and comprehensive project showcase with detailed content about XR/VR development work. 
