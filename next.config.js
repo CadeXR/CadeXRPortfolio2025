@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
   trailingSlash: true,
   basePath: process.env.NODE_ENV === 'production' ? '/CadeXRPortfolio2025' : '',
   assetPrefix: process.env.NODE_ENV === 'production' ? '/CadeXRPortfolio2025/' : '',
   images: {
-    unoptimized: true,
+    unoptimized: process.env.NODE_ENV === 'production',
     domains: ['localhost'],
     formats: ['image/webp', 'image/avif'],
   },
