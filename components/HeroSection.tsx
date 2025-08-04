@@ -105,7 +105,7 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="text-2xl md:text-4xl font-light text-gray-300"
+              className="text-2xl md:text-4xl font-light text-white"
             >
               {texts[currentTextIndex]}
               {isTyping && <span className="animate-pulse">|</span>}
@@ -117,7 +117,7 @@ export default function HeroSection({ onOpenModal }: HeroSectionProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.4 }}
-            className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="text-lg md:text-xl text-white max-w-2xl mx-auto mb-12 leading-relaxed"
           >
             XR community veteran and UX designer creating immersive experiences that reach over half a million users. 
             From Meta Quest games to experimental prototypes, pushing the boundaries of what's possible in VR.
