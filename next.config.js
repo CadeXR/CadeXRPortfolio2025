@@ -2,11 +2,11 @@
 const nextConfig = {
   output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
   trailingSlash: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/CadeXRPortfolio2025' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/CadeXRPortfolio2025/' : '',
+  basePath: '',
+  assetPrefix: '',
   images: {
     unoptimized: process.env.NODE_ENV === 'production',
-    domains: ['localhost'],
+    domains: ['localhost', 'cadedev.com'],
     formats: ['image/webp', 'image/avif'],
   },
   compiler: {
