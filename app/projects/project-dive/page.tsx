@@ -110,8 +110,8 @@ export default function ProjectDivePage() {
             
             <div className="flex items-center justify-center space-x-4 text-sm text-gray-400">
               <span className="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full">In Progress</span>
-              <span>MIT Research</span>
-              <span>2024</span>
+              <span>Research</span>
+              <span>2025</span>
             </div>
           </motion.div>
 

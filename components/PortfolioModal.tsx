@@ -121,6 +121,18 @@ export default function PortfolioModal({ onClose }: PortfolioModalProps) {
       color: 'from-pink-500 to-rose-500',
       image: '/media/PersonifyAI.png',
       link: '/projects/personifyai'
+    },
+    {
+      id: 'this-game-has-no-name',
+      title: 'This Game Has No Name',
+      subtitle: 'Cooperative Horror Exploration',
+      description: 'A cooperative, open-world horror exploration game set in the forgotten corners of West Virginia. Players explore abandoned regions, upgrade their research bus, and uncover supernatural mysteries.',
+      status: 'In Progress',
+      category: 'Game',
+      icon: Gamepad2,
+      color: 'from-gray-700 to-gray-900',
+      image: '/media/Nameless.png',
+      link: '/projects/this-game-has-no-name'
     }
   ]
 
