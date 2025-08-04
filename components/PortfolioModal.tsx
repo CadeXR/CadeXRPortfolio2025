@@ -13,8 +13,8 @@ interface Project {
   title: string
   subtitle: string
   description: string
-  status: 'In Progress' | 'Available' | 'Completed'
-  category: 'Hackathon' | 'Game' | 'Tool' | 'Hardware'
+  status: 'In Progress' | 'Available' | 'Completed' | 'Experiment'
+  category: 'Hackathon' | 'Game' | 'Tool' | 'Hardware' | 'Prototypes'
   icon: any
   color: string
   image?: string
@@ -49,6 +49,18 @@ export default function PortfolioModal({ onClose }: PortfolioModalProps) {
       color: 'from-red-500 to-orange-500',
       image: '/media/Battlegrounds.png',
       link: '/projects/battlegrounds'
+    },
+    {
+      id: 'this-game-has-no-name',
+      title: 'This Game Has No Name',
+      subtitle: 'Cooperative Horror Exploration',
+      description: 'A cooperative, open-world horror exploration game set in the forgotten corners of West Virginia. Players explore abandoned regions, upgrade their research bus, and uncover supernatural mysteries.',
+      status: 'In Progress',
+      category: 'Game',
+      icon: Gamepad2,
+      color: 'from-gray-700 to-gray-900',
+      image: '/media/Nameless.png',
+      link: '/projects/this-game-has-no-name'
     },
     {
       id: 'flexvr-wellness',
@@ -123,20 +135,20 @@ export default function PortfolioModal({ onClose }: PortfolioModalProps) {
       link: '/projects/personifyai'
     },
     {
-      id: 'this-game-has-no-name',
-      title: 'This Game Has No Name',
-      subtitle: 'Cooperative Horror Exploration',
-      description: 'A cooperative, open-world horror exploration game set in the forgotten corners of West Virginia. Players explore abandoned regions, upgrade their research bus, and uncover supernatural mysteries.',
-      status: 'In Progress',
-      category: 'Game',
-      icon: Gamepad2,
-      color: 'from-gray-700 to-gray-900',
-      image: '/media/Nameless.png',
-      link: '/projects/this-game-has-no-name'
+      id: 'vr-flat-cross-platform',
+      title: 'VR - Flat Cross Platform Interaction System',
+      subtitle: 'Bridging the Gap Between Flat Screen and VR Gaming',
+      description: 'A one-day prototype exploring unified gameplay systems that work seamlessly across both VR and flat screen platforms, with full feature parity and natural interaction.',
+      status: 'Experiment',
+      category: 'Prototypes',
+      icon: Cpu,
+      color: 'from-emerald-500 to-teal-500',
+      image: '/media/FlatandVR.png',
+      link: '/projects/vr-flat-cross-platform'
     }
   ]
 
-  const categories = ['All', 'Hackathon', 'Game', 'Tool', 'Hardware']
+  const categories = ['All', 'Hackathon', 'Game', 'Tool', 'Hardware', 'Prototypes']
 
   const filteredProjects = selectedCategory === 'All' 
     ? projects 
@@ -290,6 +302,7 @@ export default function PortfolioModal({ onClose }: PortfolioModalProps) {
                         <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                           project.status === 'In Progress' ? 'bg-yellow-500/20 text-yellow-400' :
                           project.status === 'Available' ? 'bg-green-500/20 text-green-400' :
+                          project.status === 'Experiment' ? 'bg-purple-500/20 text-purple-400' :
                           'bg-blue-500/20 text-blue-400'
                         }`}>
                           {project.status}
