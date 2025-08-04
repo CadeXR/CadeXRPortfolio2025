@@ -61,7 +61,7 @@ export default function SocialModal({ onClose }: SocialModalProps) {
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      url: 'https://linkedin.com/in/cadegilbert',
+      url: 'https://www.linkedin.com/in/cade-gilbert',
       color: 'text-blue-400',
       description: 'Professional network and updates'
     },
@@ -75,16 +75,16 @@ export default function SocialModal({ onClose }: SocialModalProps) {
     {
       name: 'Twitter/X',
       icon: Twitter,
-      url: 'https://twitter.com/cadexr',
+      url: 'https://twitter.com/cade-xr',
       color: 'text-blue-400',
       description: 'Thoughts and industry insights'
     },
     {
       name: 'YouTube',
       icon: Youtube,
-      url: 'https://youtube.com/@cadexr',
+      url: 'https://youtube.com/@cade-xr',
       color: 'text-red-400',
-      description: 'VR demos and tutorials'
+      description: 'VR Storytelling and Thoughts'
     }
   ]
 

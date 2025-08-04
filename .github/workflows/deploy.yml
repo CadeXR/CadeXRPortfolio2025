@@ -26,7 +26,14 @@ jobs:
       run: npm install
       
     - name: Build
-      run: NODE_ENV=production npm run build
+      env:
+        NODE_ENV: production
+      run: npm run build
+      
+    - name: Copy media files
+      run: |
+        cp -r public/media out/media
+        cp -r public/Fonts out/Fonts
       
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3

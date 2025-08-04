@@ -10,10 +10,10 @@ interface AboutModalProps {
 
 export default function AboutModal({ onClose, onOpenModal }: AboutModalProps) {
   const socialLinks = [
-    { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com/in/cadegilbert', color: 'text-blue-400' },
+    { name: 'LinkedIn', icon: Linkedin, url: 'https://www.linkedin.com/in/cade-gilbert', color: 'text-blue-400' },
     { name: 'GitHub', icon: Github, url: 'https://github.com/cadexr', color: 'text-gray-400' },
-    { name: 'Twitter', icon: Twitter, url: 'https://twitter.com/cadexr', color: 'text-blue-400' },
-    { name: 'YouTube', icon: Youtube, url: 'https://youtube.com/@cadexr', color: 'text-red-400' },
+    { name: 'Twitter', icon: Twitter, url: 'https://twitter.com/cade-xr', color: 'text-blue-400' },
+    { name: 'YouTube', icon: Youtube, url: 'https://youtube.com/@cade -xr', color: 'text-red-400' },
   ]
 
   return (
