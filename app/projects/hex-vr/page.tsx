@@ -1,239 +1,203 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowLeft, Users, Target, Award, Gamepad2, MessageSquare, Zap, Heart } from 'lucide-react'
+import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
 import Link from 'next/link'
 
 export default function HexVRPage() {
-  const features = [
-    {
-      icon: Zap,
-      title: 'Zero-Gravity VR',
-      description: 'Exploring zero-gravity mechanics in virtual reality'
-    },
-    {
-      icon: Users,
-      title: 'Community Driven',
-      description: 'Created as a new home for the Echo VR community'
-    },
-    {
-      icon: Target,
-      title: 'VR Esports Focus',
-      description: 'Contributing to the growth of VR esports space'
-    },
-    {
-      icon: Heart,
-      title: 'Passion Project',
-      description: 'Small team of passionate developers working in free time'
-    }
-  ]
-
-  const sections = [
-    {
-      title: 'Overview',
-      content: `Hex VR is an indie development project focused on exploring zero-gravity mechanics in virtual reality, with the goal of contributing to the growth of the VR esports space.`
-    },
-    {
-      title: 'Origin Story',
-      content: `In January 2023, Meta and Ready At Dawn announced the shutdown of servers for their hit VR title, Echo VR. Echo had cultivated a large, passionate community and was a cornerstone of the VR esports scene. In response to the shutdown, a few of us from the community formed a small development team to create a new zero-gravity VR title—one that would give the Echo VR community a new home and ensure it wouldn't be left behind.`
-    },
-    {
-      title: 'Development Progress',
-      content: `Over the past year, we've released several tech demos as proof-of-concept builds. These demos have collectively earned over 50,000 downloads and have received strong support from the community.
-
-The game is currently in an early access state, with a growing and dedicated player base. Our development team operates under the name Golden Gear Studios—a small group of passionate developers working on the project in our free time.`
-    },
-    {
-      title: 'My Role',
-      content: `I serve as the Creative Director, Community Manager, and one of the Programmers on the team, helping to guide the vision and development of the project.`
-    }
-  ]
-
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="fixed inset-0 bg-gradient-to-br from-yellow-900/20 via-black to-orange-900/20" />
-      
-      {/* Navigation */}
+    <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-cyan-800 to-pink-800">
+      {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: -20 }}
+        initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        className="fixed top-8 left-8 z-50"
+        transition={{ duration: 0.8 }}
+        className="relative h-96 overflow-hidden"
       >
-        <Link href="/">
-          <motion.button
-            whileHover={{ scale: 1.05, x: -5 }}
-            whileTap={{ scale: 0.95 }}
-            className="glass rounded-full p-3 text-white hover:text-primary-400 transition-colors"
-          >
-            <ArrowLeft size={24} />
-          </motion.button>
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(/media/HexVR.png)',
+            backgroundPosition: 'center 20%'
+          }}
+        />
+        
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+        
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-center justify-center">
+          <div className="text-center text-white">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-5xl md:text-7xl font-conthrax mb-4"
+            >
+              <span className="text-gradient-primary">Hex</span>
+              <br />
+              <span className="text-gradient">VR</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto"
+            >
+              Zero-gravity VR esport with tactical movement and competitive team play.
+            </motion.p>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Back Button */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="absolute top-8 left-8 z-20"
+      >
+        <Link href="/#portfolio" className="btn-secondary flex items-center space-x-2">
+          <ArrowLeft size={20} />
+          <span>Back to Portfolio</span>
         </Link>
       </motion.div>
 
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.3, type: "spring" }}
-              className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden"
+      <div className="max-w-6xl mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-12">
+            {/* Overview */}
+            <motion.section
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="glass p-8 rounded-2xl"
             >
-              <img 
-                src="/media/HexVR.png" 
-                alt="Hex VR" 
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-            
-            <h1 className="text-4xl md:text-6xl font-conthrax text-white mb-6">
-              <span className="text-gradient-primary">Hex</span> VR
-            </h1>
-            
-            <p className="text-2xl text-gray-300 mb-4">
-              Zero-Gravity VR Esport
-            </p>
-            
-            <div className="flex items-center justify-center space-x-4 text-sm text-gray-400 mb-6">
-              <span className="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full">Available</span>
-              <span>Golden Gear Studios</span>
-              <span>Indie Project</span>
-            </div>
+              <h2 className="text-3xl font-conthrax text-white mb-6 flex items-center">
+                Overview
+              </h2>
+              <p className="text-gray-300 leading-relaxed text-lg">
+                Hex VR is a zero-gravity sports game that blends tactical movement with competitive team play. Despite being in alpha, it has already surpassed 50,000 downloads on the Meta Quest platform, powered purely by word of mouth and community interest.
+              </p>
+            </motion.section>
 
-            {/* Achievement Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 }}
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 px-4 py-2 rounded-full border border-yellow-500/30"
+            {/* Gameplay */}
+            <motion.section
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="glass p-8 rounded-2xl"
             >
-              <Award size={20} className="text-yellow-400" />
-              <span className="text-yellow-400 font-semibold">50,000+ Downloads</span>
-            </motion.div>
-          </motion.div>
+              <h2 className="text-3xl font-conthrax text-white mb-6 flex items-center">
+                Gameplay
+              </h2>
+              <p className="text-gray-300 leading-relaxed text-lg mb-4">
+                Players navigate in zero-gravity environments, using momentum and physics to outmaneuver opponents. The game emphasizes strategic positioning, team coordination, and mastery of the unique movement system.
+              </p>
+              <ul className="text-gray-300 space-y-2">
+                <li>• Zero-gravity movement mechanics</li>
+                <li>• Tactical team-based gameplay</li>
+                <li>• Competitive esports focus</li>
+                <li>• Physics-driven interactions</li>
+              </ul>
+            </motion.section>
 
-          {/* Features Grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                className="glass rounded-xl p-6 text-center hover-lift"
-              >
-                <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <feature.icon size={24} className="text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-300 text-sm">{feature.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+            {/* Development */}
+            <motion.section
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="glass p-8 rounded-2xl"
+            >
+              <h2 className="text-3xl font-conthrax text-white mb-6 flex items-center">
+                Development
+              </h2>
+              <p className="text-gray-300 leading-relaxed text-lg mb-4">
+                As the founder of Golden Gear Studios, I lead the development of Hex VR as a passion-driven, volunteer collective. We operate entirely as a team united by a shared love for VR and the belief that great gameplay can emerge from genuine collaboration.
+              </p>
+            </motion.section>
 
-          {/* Content Sections */}
-          <div className="space-y-12">
-            {sections.map((section, index) => (
-              <motion.div
-                key={section.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
-                className="glass rounded-2xl p-8"
-              >
-                <h2 className="text-2xl font-semibold text-white mb-6">{section.title}</h2>
-                <div className="text-gray-300 leading-relaxed text-lg whitespace-pre-line">
-                  {section.content}
-                </div>
-              </motion.div>
-            ))}
+            {/* Community */}
+            <motion.section
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+              className="glass p-8 rounded-2xl"
+            >
+              <h2 className="text-3xl font-conthrax text-white mb-6 flex items-center">
+                Community Success
+              </h2>
+              <ul className="text-gray-300 space-y-2">
+                <li>• 50,000+ downloads on Meta Quest</li>
+                <li>• Organic growth through word of mouth</li>
+                <li>• Strong community engagement</li>
+                <li>• Active player base despite alpha status</li>
+              </ul>
+            </motion.section>
           </div>
 
-          {/* Project Details */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-            className="mt-16 glass rounded-2xl p-8"
-          >
-            <h2 className="text-2xl font-semibold text-white mb-6">Project Details</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-lg font-semibold text-white mb-3">My Roles</h3>
-                <ul className="text-gray-300 space-y-2">
-                  <li>• Creative Director</li>
-                  <li>• Community Manager</li>
-                  <li>• Programmer</li>
-                  <li>• Vision & Development Guide</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-white mb-3">Development Status</h3>
-                <ul className="text-gray-300 space-y-2">
-                  <li>• Early Access State</li>
-                  <li>• Growing Player Base</li>
-                  <li>• Multiple Tech Demos Released</li>
-                  <li>• Community-Driven Development</li>
-                </ul>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Try Hex VR Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.6 }}
-            className="mt-16 glass rounded-2xl p-8 text-center"
-          >
-            <h2 className="text-2xl font-semibold text-white mb-6">Try Hex VR</h2>
-            <p className="text-gray-300 mb-6">
-              Hex VR is available on Meta Quest. You can download it from the Meta Store.
-            </p>
-            <motion.a
-              href="https://www.meta.com/en-gb/experiences/hex-vr/7202337956544173/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-primary inline-flex items-center space-x-2"
+          {/* Sidebar */}
+          <div className="space-y-8">
+            {/* Project Info */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="glass p-6 rounded-2xl"
             >
-              <Gamepad2 size={20} />
-              <span>Download on Meta Store</span>
-            </motion.a>
-          </motion.div>
+              <h3 className="text-2xl font-conthrax text-white mb-4">Project Info</h3>
+              <div className="space-y-3 text-gray-300">
+                <div>
+                  <span className="font-semibold text-white">Category:</span> Game
+                </div>
+                <div>
+                  <span className="font-semibold text-white">Status:</span> 
+                  <span className="text-green-400 ml-2">Available</span>
+                </div>
+                <div>
+                  <span className="font-semibold text-white">Type:</span> Competitive Esport
+                </div>
+                <div>
+                  <span className="font-semibold text-white">Platform:</span> Meta Quest
+                </div>
+              </div>
+            </motion.div>
 
-          {/* Call to Action */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.8 }}
-            className="text-center mt-16"
-          >
-            <p className="text-gray-400 mb-4">Interested in this project or want to collaborate?</p>
-            <Link href="/">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary"
-              >
-                Get In Touch
-              </motion.button>
-            </Link>
-          </motion.div>
+            {/* Technologies */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="glass p-6 rounded-2xl"
+            >
+              <h3 className="text-2xl font-conthrax text-white mb-4">Technologies</h3>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm">Unity</span>
+                <span className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm">C#</span>
+                <span className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm">VR</span>
+                <span className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm">Physics</span>
+              </div>
+            </motion.div>
+
+            {/* My Role */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+              className="glass p-6 rounded-2xl"
+            >
+              <h3 className="text-2xl font-conthrax text-white mb-4">My Role</h3>
+              <div className="text-gray-300 space-y-2">
+                <p>• Studio Founder</p>
+                <p>• Game Design</p>
+                <p>• Programming</p>
+                <p>• Community Management</p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
