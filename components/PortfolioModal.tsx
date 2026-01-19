@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ExternalLink, ArrowRight, Gamepad2, Cpu, Brain, Zap } from 'lucide-react'
+import { X, ExternalLink, ArrowRight, Gamepad2, Cpu, Brain, Zap, Keyboard } from 'lucide-react'
 import { useState } from 'react'
 
 interface PortfolioModalProps {
@@ -26,6 +26,18 @@ export default function PortfolioModal({ onClose }: PortfolioModalProps) {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null)
 
   const projects: Project[] = [
+    {
+      id: 'yap-vr-dictation-keyboard',
+      title: 'Yap, The VR Dictation Keyboard',
+      subtitle: 'Voice-to-Text Input for VR',
+      description: 'A VR dictation keyboard utility that enables natural voice-to-text input in virtual reality environments.',
+      status: 'Available',
+      category: 'Tool',
+      icon: Keyboard,
+      color: 'from-blue-500 to-indigo-500',
+      image: '/media/MainCapsule.png',
+      link: '/projects/yap-vr-dictation-keyboard'
+    },
     {
       id: 'project-dive',
       title: 'Project Dive',
