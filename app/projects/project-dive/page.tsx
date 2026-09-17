@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft, Brain, Zap, Target, Users, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
+import FrameGrid from '@/components/FrameGrid'
 
 export default function ProjectDivePage() {
   const features = [
@@ -56,124 +57,100 @@ export default function ProjectDivePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="fixed inset-0 bg-gradient-to-br from-purple-900/20 via-black to-pink-900/20" />
-      
-      {/* Navigation */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="fixed top-8 left-8 z-50"
-      >
-        <Link href="/">
-          <motion.button
-            whileHover={{ scale: 1.05, x: -5 }}
-            whileTap={{ scale: 0.95 }}
-            className="glass rounded-full p-3 text-white hover:text-primary-400 transition-colors"
-          >
-            <ArrowLeft size={24} />
-          </motion.button>
-        </Link>
-      </motion.div>
+    <div className="fd-root">
+      <FrameGrid />
 
-      {/* Main Content */}
-      <div className="relative z-10 min-h-screen py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.3, type: "spring" }}
-              className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden"
-            >
-              <img 
-                src="/media/ProjectDive.png" 
-                alt="Project Dive" 
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-            
-            <h1 className="text-4xl md:text-6xl font-conthrax text-white mb-6">
-              <span className="text-gradient-primary">Project Dive</span>
-            </h1>
-            
-            <p className="text-2xl text-gray-300 mb-4">
-              Next Generation VR Immersion
-            </p>
-            
-            <div className="flex items-center justify-center space-x-4 text-sm text-gray-400">
-              <span className="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full">In Progress</span>
-              <span>Research</span>
-              <span>2025</span>
-            </div>
-          </motion.div>
+      <Link href="/" className="fd-back">
+        <ArrowLeft size={16} strokeWidth={1.5} />
+        <span>BACK</span>
+      </Link>
 
-          {/* Features Grid */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                className="glass rounded-xl p-6 text-center hover-lift"
-              >
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <feature.icon size={24} className="text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-300 text-sm">{feature.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Content Sections */}
-          <div className="space-y-12">
-            {sections.map((section, index) => (
-              <motion.div
-                key={section.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 + index * 0.1 }}
-                className="glass rounded-2xl p-8"
-              >
-                <h2 className="text-2xl font-semibold text-white mb-6">{section.title}</h2>
-                <p className="text-gray-300 leading-relaxed text-lg">{section.content}</p>
-              </motion.div>
-            ))}
+      <main className="relative z-10 max-w-6xl mx-auto px-4 py-20">
+        <motion.header
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12 text-center"
+        >
+          <div className="fd-media-frame w-32 h-32 mx-auto mb-8">
+            <img
+              src="/media/ProjectDive.png"
+              alt="Project Dive"
+              className="w-full h-full object-cover"
+            />
           </div>
 
-          {/* Development Status */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-            className="mt-16 glass rounded-2xl p-8"
+          <p className="fd-eyebrow">Research</p>
+          <h1 className="fd-title">Project Dive</h1>
+          <p className="fd-lede mx-auto mb-4">Next Generation VR Immersion</p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm fd-muted">
+            <span className="px-3 py-1 border border-[var(--fd-gold-dim)] text-[var(--fd-gold)] text-[11px] font-semibold uppercase tracking-wider">
+              In Progress
+            </span>
+            <span>Research</span>
+            <span>2025</span>
+          </div>
+        </motion.header>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
+        >
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.15 + index * 0.05 }}
+              className="fd-panel text-center"
+              style={{ marginTop: 0 }}
+            >
+              <div className="fd-mark mx-auto mb-4">
+                <feature.icon size={24} strokeWidth={1.5} />
+              </div>
+              <h3 className="fd-panel-title text-base mb-2">{feature.title}</h3>
+              <p className="fd-muted text-sm">{feature.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="flex flex-col gap-4">
+          {sections.map((section, index) => (
+            <motion.section
+              key={section.title}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 + index * 0.05 }}
+              className="fd-panel"
+              style={{ marginTop: 0 }}
+            >
+              <h2 className="fd-panel-title">{section.title}</h2>
+              <p className="fd-body mb-0">{section.content}</p>
+            </motion.section>
+          ))}
+
+          <motion.section
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="fd-panel"
+            style={{ marginTop: 0 }}
           >
-            <h2 className="text-2xl font-semibold text-white mb-6">Development Status</h2>
+            <h2 className="fd-panel-title">Development Status</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-lg font-semibold text-white mb-3">Current Progress</h3>
-                <p className="text-gray-300 leading-relaxed">
-                  After successfully prototyping at MIT in January 2024 and presenting at NYU shortly after, 
-                  we're currently working on the final design pipeline and sourcing hardware components for the next iteration.
+                <h3 className="fd-panel-title text-base mb-3">Current Progress</h3>
+                <p className="fd-body mb-0">
+                  After successfully prototyping at MIT in January 2024 and presenting at NYU shortly after,
+                  we&apos;re currently working on the final design pipeline and sourcing hardware components for the next iteration.
                 </p>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white mb-3">Next Steps</h3>
-                <ul className="text-gray-300 space-y-2">
+                <h3 className="fd-panel-title text-base mb-3">Next Steps</h3>
+                <ul className="fd-body mb-0 space-y-2">
                   <li>• Finalize hardware component selection</li>
                   <li>• Optimize bio-signal processing algorithms</li>
                   <li>• Conduct user testing and feedback</li>
@@ -181,48 +158,38 @@ export default function ProjectDivePage() {
                 </ul>
               </div>
             </div>
-          </motion.div>
-
-          {/* Research Paper Link */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.6 }}
-            className="mt-12 text-center"
-          >
-            <motion.a
-              href="https://hcie.csail.mit.edu/research/eit-kit/eit-kit.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-neon inline-flex items-center space-x-2"
-            >
-              <ExternalLink size={20} />
-              <span>View EIT-Kit Research Paper</span>
-            </motion.a>
-          </motion.div>
-
-          {/* Call to Action */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.8 }}
-            className="text-center mt-16"
-          >
-            <p className="text-gray-400 mb-4">Interested in this project or want to collaborate?</p>
-            <Link href="/">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary"
-              >
-                Get In Touch
-              </motion.button>
-            </Link>
-          </motion.div>
+          </motion.section>
         </div>
-      </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.55 }}
+          className="mt-12 text-center"
+        >
+          <a
+            href="https://hcie.csail.mit.edu/research/eit-kit/eit-kit.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fd-btn-quiet inline-flex items-center gap-2"
+          >
+            <ExternalLink size={16} strokeWidth={1.5} />
+            <span>View EIT-Kit Research Paper</span>
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="text-center mt-12"
+        >
+          <p className="fd-muted mb-4">Interested in this project or want to collaborate?</p>
+          <Link href="/" className="fd-btn-primary">
+            Get In Touch
+          </Link>
+        </motion.div>
+      </main>
     </div>
   )
-} 
+}

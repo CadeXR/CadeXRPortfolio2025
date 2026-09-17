@@ -1,8 +1,8 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { ArrowLeft, Download, ExternalLink, FileText, Calendar, MapPin, Briefcase } from 'lucide-react'
 import Link from 'next/link'
+import FrameGrid from '@/components/FrameGrid'
 
 export default function ResumePage() {
   const experiences = [
@@ -44,205 +44,131 @@ export default function ResumePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-900/20 via-black to-purple-900/20" />
-      
-      {/* Navigation */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="fixed top-8 left-8 z-50"
-      >
-        <Link href="/">
-          <motion.button
-            whileHover={{ scale: 1.05, x: -5 }}
-            whileTap={{ scale: 0.95 }}
-            className="glass rounded-full p-3 text-white hover:text-primary-400 transition-colors"
-          >
-            <ArrowLeft size={24} />
-          </motion.button>
-        </Link>
-      </motion.div>
+    <div className="fd-root">
+      <FrameGrid />
 
-      {/* Main Content */}
-      <div className="relative z-10 min-h-screen py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.3, type: "spring" }}
-              className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-primary-500 to-neon-blue rounded-full flex items-center justify-center"
+      <Link href="/" className="fd-back">
+        <ArrowLeft size={16} strokeWidth={1.5} />
+        <span>BACK</span>
+      </Link>
+
+      <main className="fd-main">
+        <header className="fd-header text-center">
+          <div className="fd-mark mx-auto mb-4" aria-hidden="true">
+            <FileText size={28} strokeWidth={1.5} />
+          </div>
+          <p className="fd-eyebrow">RESUME</p>
+          <h1 className="fd-title">Resume</h1>
+          <p className="fd-lede mx-auto max-w-2xl">
+            Cade Gilbert - XR Community Veteran, UX Designer, and Game Designer
+          </p>
+
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="/media/CadeGilbertResume-July.pdf"
+              download
+              className="fd-btn-primary"
             >
-              <FileText size={40} className="text-white" />
-            </motion.div>
-            
-            <h1 className="text-4xl md:text-6xl font-conthrax text-white mb-6">
-              <span className="text-gradient-primary">Resume</span>
-            </h1>
-            
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed mb-8">
-              Cade Gilbert - XR Community Veteran, UX Designer, and Game Designer
-            </p>
+              <Download size={16} strokeWidth={1.5} />
+              <span>Download PDF</span>
+            </a>
+            <a
+              href="/media/CadeGilbertResume-July.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="fd-btn-quiet"
+            >
+              <ExternalLink size={16} strokeWidth={1.5} />
+              <span>Open in New Tab</span>
+            </a>
+          </div>
+        </header>
 
-            {/* Download Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.a
-                href="/media/CadeGilbertResume-July.pdf"
-                download
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary flex items-center space-x-2"
-              >
-                <Download size={20} />
-                <span>Download PDF</span>
-              </motion.a>
-              
-              <motion.a
-                href="/media/CadeGilbertResume-July.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-secondary flex items-center space-x-2"
-              >
-                <ExternalLink size={20} />
-                <span>Open in New Tab</span>
-              </motion.a>
+        <section className="fd-panel">
+          <h2 className="fd-panel-title">Professional Summary</h2>
+          <p className="fd-body mb-6">
+            XR community veteran and UX designer with expertise in creating immersive experiences,
+            game design, and community management. My work has helped reach over half a million installs
+            on the Meta Quest platform, with projects ranging from commercial games to experimental prototypes.
+          </p>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="border border-fd-gold-dim bg-fd-ground p-4 text-center">
+              <div className="text-2xl font-bold text-fd-gold">2+</div>
+              <div className="text-fd-muted text-[13px]">Years Experience</div>
             </div>
-          </motion.div>
-
-          {/* Quick Overview */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="glass rounded-2xl p-8 mb-12"
-          >
-            <h2 className="text-2xl font-semibold text-white mb-6">Professional Summary</h2>
-            <p className="text-gray-300 leading-relaxed mb-6">
-              XR community veteran and UX designer with expertise in creating immersive experiences, 
-              game design, and community management. My work has helped reach over half a million installs 
-              on the Meta Quest platform, with projects ranging from commercial games to experimental prototypes.
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary-400 mb-2">2+</div>
-                <div className="text-gray-400">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary-400 mb-2">10+</div>
-                <div className="text-gray-400">Projects</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary-400 mb-2">2</div>
-                <div className="text-gray-400">Published Games</div>
-              </div>
+            <div className="border border-fd-gold-dim bg-fd-ground p-4 text-center">
+              <div className="text-2xl font-bold text-fd-gold">10+</div>
+              <div className="text-fd-muted text-[13px]">Projects</div>
             </div>
-          </motion.div>
+            <div className="border border-fd-gold-dim bg-fd-ground p-4 text-center">
+              <div className="text-2xl font-bold text-fd-gold">2</div>
+              <div className="text-fd-muted text-[13px]">Published Games</div>
+            </div>
+          </div>
+        </section>
 
-          {/* Experience */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="glass rounded-2xl p-8 mb-12"
-          >
-            <h2 className="text-2xl font-semibold text-white mb-6 flex items-center">
-              <Briefcase size={24} className="mr-3 text-primary-400" />
-              Professional Experience
-            </h2>
-            
-            <div className="space-y-8">
-              {experiences.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                  className="border-l-4 border-primary-500 pl-6"
-                >
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-white">{exp.title}</h3>
-                    <div className="flex items-center space-x-4 text-sm text-gray-400">
-                      <div className="flex items-center">
-                        <Calendar size={14} className="mr-1" />
-                        {exp.period}
-                      </div>
-                      <div className="flex items-center">
-                        <MapPin size={14} className="mr-1" />
-                        {exp.location}
-                      </div>
+        <section className="fd-panel">
+          <h2 className="fd-panel-title flex items-center gap-2">
+            <Briefcase size={20} strokeWidth={1.5} className="text-fd-gold" />
+            Professional Experience
+          </h2>
+
+          <div className="space-y-6">
+            {experiences.map((exp, index) => (
+              <div
+                key={index}
+                className="border-l-2 border-fd-gold pl-5"
+              >
+                <div className="mb-2 flex flex-col md:flex-row md:items-center md:justify-between">
+                  <h3 className="text-fd-cream text-[15px] font-bold">{exp.title}</h3>
+                  <div className="flex flex-wrap items-center gap-4 text-[12px] text-fd-muted">
+                    <div className="flex items-center gap-1">
+                      <Calendar size={14} strokeWidth={1.5} />
+                      {exp.period}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <MapPin size={14} strokeWidth={1.5} />
+                      {exp.location}
                     </div>
                   </div>
-                  <div className="text-primary-400 font-medium mb-2">{exp.company}</div>
-                  <p className="text-gray-300 leading-relaxed">{exp.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                </div>
+                <div className="mb-2 font-medium text-fd-gold">{exp.company}</div>
+                <p className="fd-body">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-          {/* Skills */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="glass rounded-2xl p-8"
-          >
-            <h2 className="text-2xl font-semibold text-white mb-6">Technical Skills</h2>
-            
-            <div className="grid md:grid-cols-2 gap-8">
-              {skills.map((skillGroup, index) => (
-                <motion.div
-                  key={skillGroup.category}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-                >
-                  <h3 className="text-lg font-semibold text-white mb-3">{skillGroup.category}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {skillGroup.items.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-3 py-1 bg-white/10 text-gray-300 rounded-full text-sm border border-white/20"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+        <section className="fd-panel">
+          <h2 className="fd-panel-title">Technical Skills</h2>
 
-          {/* Call to Action */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="text-center mt-12"
-          >
-            <p className="text-gray-400 mb-4">Interested in working together?</p>
-            <Link href="/">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary"
-              >
-                Get In Touch
-              </motion.button>
-            </Link>
-          </motion.div>
+          <div className="grid gap-8 md:grid-cols-2">
+            {skills.map((skillGroup) => (
+              <div key={skillGroup.category}>
+                <h3 className="mb-3 text-[14px] font-bold text-fd-cream">{skillGroup.category}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {skillGroup.items.map((skill) => (
+                    <span
+                      key={skill}
+                      className="border border-fd-gold-dim px-2 py-0.5 text-[11px] uppercase tracking-[0.12em] text-fd-muted"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <div className="mt-8 text-center">
+          <p className="mb-4 text-fd-muted">Interested in working together?</p>
+          <Link href="/" className="fd-btn-primary">
+            Get In Touch
+          </Link>
         </div>
-      </div>
+      </main>
     </div>
   )
-} 
+}

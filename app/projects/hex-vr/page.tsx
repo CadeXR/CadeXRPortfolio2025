@@ -1,103 +1,84 @@
 'use client'
 
+import FrameGrid from '@/components/FrameGrid'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
 export default function HexVRPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-cyan-800 to-pink-800">
-      {/* Header */}
-      <motion.div
+    <div className="fd-root">
+      <FrameGrid />
+
+      <Link href="/#portfolio" className="fd-back">
+        <ArrowLeft size={16} strokeWidth={1.5} />
+        <span>BACK</span>
+      </Link>
+
+      <motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative h-96 overflow-hidden"
+        className="relative z-10 h-96 w-full overflow-hidden"
       >
-        {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: 'url(/media/HexVR.png)',
-            backgroundPosition: 'center 20%'
+            backgroundPosition: 'center 20%',
           }}
         />
-        
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
-        
-        {/* Content */}
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="text-center text-white">
+        <div className="absolute inset-0 bg-fd-ground/60" />
+        <div className="relative z-10 flex h-full items-center justify-center px-4">
+          <div className="text-center">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-7xl font-conthrax mb-4"
+              className="fd-title mb-4 text-5xl md:text-7xl"
             >
-              <span className="text-gradient-primary">Hex</span>
+              Hex
               <br />
-              <span className="text-gradient">VR</span>
+              VR
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto"
+              className="mx-auto max-w-3xl text-xl text-fd-cream md:text-2xl"
             >
               Zero-gravity VR esport with tactical movement and competitive team play.
             </motion.p>
           </div>
         </div>
-      </motion.div>
+      </motion.header>
 
-      {/* Back Button */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        className="absolute top-8 left-8 z-20"
-      >
-        <Link href="/#portfolio" className="btn-secondary flex items-center space-x-2">
-          <ArrowLeft size={20} />
-          <span>Back to Portfolio</span>
-        </Link>
-      </motion.div>
-
-      {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-12">
-            {/* Overview */}
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+          <div className="lg:col-span-2">
             <motion.section
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="glass p-8 rounded-2xl"
+              className="fd-panel"
             >
-              <h2 className="text-3xl font-conthrax text-white mb-6 flex items-center">
-                Overview
-              </h2>
-              <p className="text-gray-300 leading-relaxed text-lg">
+              <h2 className="fd-panel-title">Overview</h2>
+              <p className="fd-body text-lg leading-relaxed">
                 Hex VR is a zero-gravity sports game that blends tactical movement with competitive team play. Despite being in alpha, it has already surpassed 50,000 downloads on the Meta Quest platform, powered purely by word of mouth and community interest.
               </p>
             </motion.section>
 
-            {/* Gameplay */}
             <motion.section
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
-              className="glass p-8 rounded-2xl"
+              className="fd-panel"
             >
-              <h2 className="text-3xl font-conthrax text-white mb-6 flex items-center">
-                Gameplay
-              </h2>
-              <p className="text-gray-300 leading-relaxed text-lg mb-4">
+              <h2 className="fd-panel-title">Gameplay</h2>
+              <p className="fd-body text-lg leading-relaxed">
                 Players navigate in zero-gravity environments, using momentum and physics to outmaneuver opponents. The game emphasizes strategic positioning, team coordination, and mastery of the unique movement system.
               </p>
-              <ul className="text-gray-300 space-y-2">
+              <ul className="space-y-2 text-fd-cream">
                 <li>• Zero-gravity movement mechanics</li>
                 <li>• Tactical team-based gameplay</li>
                 <li>• Competitive esports focus</li>
@@ -105,32 +86,26 @@ export default function HexVRPage() {
               </ul>
             </motion.section>
 
-            {/* Development */}
             <motion.section
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
-              className="glass p-8 rounded-2xl"
+              className="fd-panel"
             >
-              <h2 className="text-3xl font-conthrax text-white mb-6 flex items-center">
-                Development
-              </h2>
-              <p className="text-gray-300 leading-relaxed text-lg mb-4">
+              <h2 className="fd-panel-title">Development</h2>
+              <p className="fd-body text-lg leading-relaxed">
                 As the founder of Golden Gear Studios, I lead the development of Hex VR as a passion-driven, volunteer collective. We operate entirely as a team united by a shared love for VR and the belief that great gameplay can emerge from genuine collaboration.
               </p>
             </motion.section>
 
-            {/* Community */}
             <motion.section
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
-              className="glass p-8 rounded-2xl"
+              className="fd-panel"
             >
-              <h2 className="text-3xl font-conthrax text-white mb-6 flex items-center">
-                Community Success
-              </h2>
-              <ul className="text-gray-300 space-y-2">
+              <h2 className="fd-panel-title">Community Success</h2>
+              <ul className="space-y-2 text-fd-cream">
                 <li>• 50,000+ downloads on Meta Quest</li>
                 <li>• Organic growth through word of mouth</li>
                 <li>• Strong community engagement</li>
@@ -139,58 +114,54 @@ export default function HexVRPage() {
             </motion.section>
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-8">
-            {/* Project Info */}
+          <div>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
-              className="glass p-6 rounded-2xl"
+              className="fd-panel"
             >
-              <h3 className="text-2xl font-conthrax text-white mb-4">Project Info</h3>
-              <div className="space-y-3 text-gray-300">
+              <h3 className="fd-panel-title">Project Info</h3>
+              <div className="space-y-3 text-fd-cream">
                 <div>
-                  <span className="font-semibold text-white">Category:</span> Game
+                  <span className="font-semibold text-fd-gold">Category:</span> Game
                 </div>
                 <div>
-                  <span className="font-semibold text-white">Status:</span> 
-                  <span className="text-green-400 ml-2">Available</span>
+                  <span className="font-semibold text-fd-gold">Status:</span>
+                  <span className="ml-2 text-fd-success">Available</span>
                 </div>
                 <div>
-                  <span className="font-semibold text-white">Type:</span> Competitive Esport
+                  <span className="font-semibold text-fd-gold">Type:</span> Competitive Esport
                 </div>
                 <div>
-                  <span className="font-semibold text-white">Platform:</span> Meta Quest
+                  <span className="font-semibold text-fd-gold">Platform:</span> Meta Quest
                 </div>
               </div>
             </motion.div>
 
-            {/* Technologies */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
-              className="glass p-6 rounded-2xl"
+              className="fd-panel"
             >
-              <h3 className="text-2xl font-conthrax text-white mb-4">Technologies</h3>
+              <h3 className="fd-panel-title">Technologies</h3>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm">Unity</span>
-                <span className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm">C#</span>
-                <span className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm">VR</span>
-                <span className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm">Physics</span>
+                <span className="border border-fd-gold-dim px-3 py-1 text-sm text-fd-muted">Unity</span>
+                <span className="border border-fd-gold-dim px-3 py-1 text-sm text-fd-muted">C#</span>
+                <span className="border border-fd-gold-dim px-3 py-1 text-sm text-fd-muted">VR</span>
+                <span className="border border-fd-gold-dim px-3 py-1 text-sm text-fd-muted">Physics</span>
               </div>
             </motion.div>
 
-            {/* My Role */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
-              className="glass p-6 rounded-2xl"
+              className="fd-panel"
             >
-              <h3 className="text-2xl font-conthrax text-white mb-4">My Role</h3>
-              <div className="text-gray-300 space-y-2">
+              <h3 className="fd-panel-title">My Role</h3>
+              <div className="space-y-2 text-fd-cream">
                 <p>• Studio Founder</p>
                 <p>• Game Design</p>
                 <p>• Programming</p>
@@ -202,4 +173,4 @@ export default function HexVRPage() {
       </div>
     </div>
   )
-} 
+}

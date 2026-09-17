@@ -1,130 +1,105 @@
 'use client'
 
+import FrameGrid from '@/components/FrameGrid'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
 export default function BattlegroundsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-900 via-orange-800 to-yellow-800">
-      {/* Header */}
-      <motion.div
+    <div className="fd-root">
+      <FrameGrid />
+
+      <Link href="/#portfolio" className="fd-back">
+        <ArrowLeft size={16} strokeWidth={1.5} />
+        <span>BACK</span>
+      </Link>
+
+      <motion.header
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative h-96 overflow-hidden"
+        className="relative z-10 h-96 w-full overflow-hidden"
       >
-        {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: 'url(/media/Battlegrounds.png)',
-            backgroundPosition: 'center 20%'
+            backgroundPosition: 'center 20%',
           }}
         />
-        
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
-        
-        {/* Content */}
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="text-center text-white">
+        <div className="absolute inset-0 bg-fd-ground/60" />
+        <div className="relative z-10 flex h-full items-center justify-center px-4">
+          <div className="text-center">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-7xl font-conthrax mb-4"
+              className="fd-title mb-4 text-5xl md:text-7xl"
             >
-              <span className="text-gradient-primary">Battlegrounds</span>
+              Battlegrounds
               <br />
-              <span className="text-gradient">VR</span>
+              VR
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto"
+              className="mx-auto max-w-3xl text-xl text-fd-cream md:text-2xl"
             >
               Fantasy multiplayer sandbox with immersive combat and social interaction.
             </motion.p>
           </div>
         </div>
-      </motion.div>
+      </motion.header>
 
-      {/* Back Button */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        className="absolute top-8 left-8 z-20"
-      >
-        <Link href="/#portfolio" className="btn-secondary flex items-center space-x-2">
-          <ArrowLeft size={20} />
-          <span>Back to Portfolio</span>
-        </Link>
-      </motion.div>
-
-      {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-12">
-            {/* Overview */}
+      <div className="relative z-10 mx-auto max-w-6xl px-4 py-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+          <div className="lg:col-span-2">
             <motion.section
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="glass p-8 rounded-2xl"
+              className="fd-panel"
             >
-              <h2 className="text-3xl font-conthrax text-white mb-6 flex items-center">
-                Overview
-              </h2>
-              <p className="text-gray-300 leading-relaxed text-lg">
+              <h2 className="fd-panel-title">Overview</h2>
+              <p className="fd-body text-lg leading-relaxed">
                 Battlegrounds VR is a free-to-play fantasy sandbox game set in a sprawling medieval world, where players can engage in real-time PvP sword fighting, explore open environments, and interact with a wide range of objects and systems. The game emphasizes player freedom, emergent gameplay, and social interaction—encouraging players to team up, go rogue, or create their own experiences.
               </p>
             </motion.section>
 
-            {/* My Contribution */}
             <motion.section
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
-              className="glass p-8 rounded-2xl"
+              className="fd-panel"
             >
-              <h2 className="text-3xl font-conthrax text-white mb-6 flex items-center">
-                My Contribution
-              </h2>
-              <p className="text-gray-300 leading-relaxed text-lg mb-4">
+              <h2 className="fd-panel-title">My Contribution</h2>
+              <p className="fd-body text-lg leading-relaxed">
                 I joined the project in its early days as one of the founding gameplay designers, spending 11 months helping shape the core systems and identity of the game. During my time on the project, Battlegrounds VR reached nearly 500,000 downloads, fueled by strong community engagement and an open-ended design philosophy.
               </p>
             </motion.section>
 
-            {/* Responsibilities */}
             <motion.section
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
-              className="glass p-8 rounded-2xl"
+              className="fd-panel"
             >
-              <h2 className="text-3xl font-conthrax text-white mb-6 flex items-center">
-                Responsibilities
-              </h2>
-              <p className="text-gray-300 leading-relaxed text-lg mb-4">
-                My work included prototyping features, building levels and maps, writing design documentation, and helping define mechanics that supported the sandbox-style gameplay. I also served as the Community Manager, launching and growing the game's Discord server to over 10,000 active users, creating a strong player hub that supported the game's growth and player-driven culture.
+              <h2 className="fd-panel-title">Responsibilities</h2>
+              <p className="fd-body text-lg leading-relaxed">
+                My work included prototyping features, building levels and maps, writing design documentation, and helping define mechanics that supported the sandbox-style gameplay. I also served as the Community Manager, launching and growing the game&apos;s Discord server to over 10,000 active users, creating a strong player hub that supported the game&apos;s growth and player-driven culture.
               </p>
             </motion.section>
 
-            {/* Key Achievements */}
             <motion.section
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
-              className="glass p-8 rounded-2xl"
+              className="fd-panel"
             >
-              <h2 className="text-3xl font-conthrax text-white mb-6 flex items-center">
-                Key Achievements
-              </h2>
-              <ul className="text-gray-300 space-y-2">
+              <h2 className="fd-panel-title">Key Achievements</h2>
+              <ul className="space-y-2 text-fd-cream">
                 <li>• Helped grow the game to nearly 500,000 downloads</li>
                 <li>• Built and managed a Discord community of 10,000+ active users</li>
                 <li>• Designed core gameplay systems that emphasized player freedom</li>
@@ -133,58 +108,54 @@ export default function BattlegroundsPage() {
             </motion.section>
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-8">
-            {/* Project Info */}
+          <div>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
-              className="glass p-6 rounded-2xl"
+              className="fd-panel"
             >
-              <h3 className="text-2xl font-conthrax text-white mb-4">Project Info</h3>
-              <div className="space-y-3 text-gray-300">
+              <h3 className="fd-panel-title">Project Info</h3>
+              <div className="space-y-3 text-fd-cream">
                 <div>
-                  <span className="font-semibold text-white">Category:</span> Game
+                  <span className="font-semibold text-fd-gold">Category:</span> Game
                 </div>
                 <div>
-                  <span className="font-semibold text-white">Status:</span> 
-                  <span className="text-green-400 ml-2">Available</span>
+                  <span className="font-semibold text-fd-gold">Status:</span>
+                  <span className="ml-2 text-fd-success">Available</span>
                 </div>
                 <div>
-                  <span className="font-semibold text-white">Type:</span> Multiplayer Sandbox
+                  <span className="font-semibold text-fd-gold">Type:</span> Multiplayer Sandbox
                 </div>
                 <div>
-                  <span className="font-semibold text-white">Platform:</span> Meta Quest
+                  <span className="font-semibold text-fd-gold">Platform:</span> Meta Quest
                 </div>
               </div>
             </motion.div>
 
-            {/* Technologies */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
-              className="glass p-6 rounded-2xl"
+              className="fd-panel"
             >
-              <h3 className="text-2xl font-conthrax text-white mb-4">Technologies</h3>
+              <h3 className="fd-panel-title">Technologies</h3>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm">Unity</span>
-                <span className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm">C#</span>
-                <span className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm">VR</span>
-                <span className="px-3 py-1 bg-primary-500/20 text-primary-300 rounded-full text-sm">Multiplayer</span>
+                <span className="border border-fd-gold-dim px-3 py-1 text-sm text-fd-muted">Unity</span>
+                <span className="border border-fd-gold-dim px-3 py-1 text-sm text-fd-muted">C#</span>
+                <span className="border border-fd-gold-dim px-3 py-1 text-sm text-fd-muted">VR</span>
+                <span className="border border-fd-gold-dim px-3 py-1 text-sm text-fd-muted">Multiplayer</span>
               </div>
             </motion.div>
 
-            {/* My Role */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
-              className="glass p-6 rounded-2xl"
+              className="fd-panel"
             >
-              <h3 className="text-2xl font-conthrax text-white mb-4">My Role</h3>
-              <div className="text-gray-300 space-y-2">
+              <h3 className="fd-panel-title">My Role</h3>
+              <div className="space-y-2 text-fd-cream">
                 <p>• Gameplay Design</p>
                 <p>• Level Design</p>
                 <p>• Community Management</p>
@@ -196,4 +167,4 @@ export default function BattlegroundsPage() {
       </div>
     </div>
   )
-} 
+}

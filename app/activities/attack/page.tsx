@@ -1,9 +1,9 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { ArrowLeft, Target, Zap, Trophy, RotateCcw } from 'lucide-react'
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
+import FrameGrid from '@/components/FrameGrid'
 
 interface Particle {
   id: number
@@ -36,7 +36,7 @@ export default function ParticleAttackGame() {
   const animationRef = useRef<number>()
   const bulletIdRef = useRef(0)
 
-  const colors = ['#00d4ff', '#8b5cf6', '#ec4899', '#10b981', '#f59e0b']
+  const colors = ['#ba75ff', '#e8dcc4', '#9a8f78', '#c994ff', '#c41e3a']
 
   useEffect(() => {
     // Load high score from localStorage
@@ -64,7 +64,7 @@ export default function ParticleAttackGame() {
 
     const gameLoop = () => {
       // Clear canvas
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'
+      ctx.fillStyle = 'rgba(8, 8, 9, 0.15)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       // Update and draw bullets
@@ -82,7 +82,7 @@ export default function ParticleAttackGame() {
         // Draw bullet
         ctx.beginPath()
         ctx.arc(bullet.x, bullet.y, 3, 0, Math.PI * 2)
-        ctx.fillStyle = '#f2751f'
+        ctx.fillStyle = '#ba75ff'
         ctx.fill()
         
         return bullet
@@ -206,101 +206,89 @@ export default function ParticleAttackGame() {
   }
 
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Navigation */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="fixed top-8 left-8 z-50"
-      >
-        <Link href="/activities">
-          <motion.button
-            whileHover={{ scale: 1.05, x: -5 }}
-            whileTap={{ scale: 0.95 }}
-            className="glass rounded-full p-3 text-white hover:text-primary-400 transition-colors"
-          >
-            <ArrowLeft size={24} />
-          </motion.button>
-        </Link>
-      </motion.div>
+    <div className="fd-root min-h-screen overflow-hidden bg-fd-ground">
+      <FrameGrid />
+
+      <Link href="/activities" className="fd-back">
+        <ArrowLeft size={16} strokeWidth={1.5} />
+        <span>BACK</span>
+      </Link>
 
       {/* Game UI */}
-      <div className="fixed top-8 right-8 z-50">
-        <div className="glass rounded-xl p-4 space-y-2">
-          <div className="flex items-center space-x-2">
-            <Target size={20} className="text-primary-400" />
-            <span className="text-white font-semibold">Score: {score}</span>
+      <div className="fixed right-6 top-6 z-50">
+        <div className="fd-panel space-y-2 p-4">
+          <div className="flex items-center gap-2">
+            <Target size={16} strokeWidth={1.5} className="text-fd-gold" />
+            <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-fd-cream">
+              Score: {score}
+            </span>
           </div>
-          <div className="flex items-center space-x-2">
-            <Trophy size={20} className="text-yellow-400" />
-            <span className="text-white font-semibold">High Score: {highScore}</span>
+          <div className="flex items-center gap-2">
+            <Trophy size={16} strokeWidth={1.5} className="text-fd-gold" />
+            <span className="text-[13px] font-bold uppercase tracking-[0.1em] text-fd-cream">
+              High Score: {highScore}
+            </span>
           </div>
         </div>
       </div>
 
       {/* Game Controls */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="flex space-x-4">
+      <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2">
+        <div className="flex gap-3">
           {!gameActive ? (
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
+              type="button"
               onClick={startGame}
-              className="btn-primary flex items-center space-x-2"
+              className="fd-btn-primary"
             >
-              <Zap size={20} />
+              <Zap size={16} strokeWidth={1.5} />
               <span>Start Game</span>
-            </motion.button>
+            </button>
           ) : (
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
+              type="button"
               onClick={stopGame}
-              className="btn-secondary flex items-center space-x-2"
+              className="fd-btn-quiet"
             >
-              <RotateCcw size={20} />
+              <RotateCcw size={16} strokeWidth={1.5} />
               <span>Stop Game</span>
-            </motion.button>
+            </button>
           )}
         </div>
       </div>
 
       {/* Instructions */}
       {!gameActive && (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 text-center"
-        >
-          <div className="glass rounded-2xl p-8 max-w-md">
-            <h2 className="text-2xl font-conthrax text-white mb-4">Particle Attack</h2>
-            <p className="text-gray-300 mb-6">
+        <div className="fixed left-1/2 top-1/2 z-40 max-w-md -translate-x-1/2 -translate-y-1/2 px-4 text-center">
+          <section className="fd-panel p-6">
+            <p className="fd-eyebrow mb-2">GAME</p>
+            <h2 className="fd-panel-title mb-4">Particle Attack</h2>
+            <p className="fd-body mb-6">
               Move your mouse to aim and click to shoot! Destroy the colorful particles to score points.
               The more particles you destroy, the higher your score!
             </p>
-            <div className="text-sm text-gray-400 space-y-1">
-              <p>• Move mouse to aim</p>
-              <p>• Click to shoot</p>
-              <p>• Destroy particles for points</p>
-              <p>• Try to beat your high score!</p>
-            </div>
-          </div>
-        </motion.div>
+            <ul className="fd-steps text-left">
+              <li>Move mouse to aim</li>
+              <li>Click to shoot</li>
+              <li>Destroy particles for points</li>
+              <li>Try to beat your high score!</li>
+            </ul>
+          </section>
+        </div>
       )}
 
       {/* Game Canvas */}
       <canvas
         ref={canvasRef}
-        className="fixed inset-0 cursor-crosshair"
+        className="fixed inset-0 z-10 cursor-crosshair bg-fd-ground"
         onMouseMove={handleMouseMove}
         onClick={handleClick}
-        style={{ background: 'transparent' }}
       />
 
       {/* Crosshair */}
       {gameActive && (
         <div
-          className="fixed pointer-events-none z-30"
+          className="pointer-events-none fixed z-30"
           style={{
             left: mousePos.x - 10,
             top: mousePos.y - 10,
@@ -308,9 +296,15 @@ export default function ParticleAttackGame() {
             height: 20
           }}
         >
-          <div className="w-full h-full border-2 border-primary-400 rounded-full opacity-50" />
+          <div className="h-full w-full border border-fd-gold opacity-60" />
+          <div
+            className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-fd-gold opacity-40"
+          />
+          <div
+            className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-fd-gold opacity-40"
+          />
         </div>
       )}
     </div>
   )
-} 
+}
